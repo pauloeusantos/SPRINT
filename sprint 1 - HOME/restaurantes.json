@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nome": "Sabor Mineiro",
+    "imagemurl": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc3RhdXJhbnR8ZW58MHx8fHwxNjA3MjY1NjY0&ixlib=rb-1.2.1&q=80&w=400",
+    "endereco": "Rua A, 100",
+    "telefone": "(31) 98765-4321",
+    "capacidade": 40,
+    "categoria": "Churrascaria"
+  },
+  {
+    "id": 2,
+    "nome": "Cantina da Vila",
+    "imagemurl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fGl0YWxpYW5hfGVufDB8fHx8MTY4ODQ0NTc2Ng&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Av. B, 200",
+    "telefone": "(31) 91234-5678",
+    "capacidade": 60,
+    "categoria": "Italiana"
+  },
+  {
+    "id": 3,
+    "nome": "Japão Sushi",
+    "imagemurl": "https://images.unsplash.com/photo-1589927986089-35812378c1c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHxzdXNoaXxlbnwwfHx8fDE2MDcyNjU2NjQ&ixlib=rb-1.2.1&q=80&w=400",
+    "endereco": "Rua C, 50",
+    "telefone": "(31) 99876-5432",
+    "capacidade": 30,
+    "categoria": "Japonês"
+  },
+  {
+    "id": 4,
+    "nome": "Burger House",
+    "imagemurl": "https://images.unsplash.com/photo-1550547660-d9450f859349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxidXJnZXJ8ZW58MHx8fHwxNjA3MjY1NjY0&ixlib=rb-1.2.1&q=80&w=400",
+    "endereco": "Av. D, 300",
+    "telefone": "(31) 97654-3210",
+    "capacidade": 50,
+    "categoria": "Fast Food"
+  },
+  {
+    "id": 5,
+    "nome": "Pizzaria Italiana",
+    "imagemurl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHxwaXp6YXJpYXxlbnwwfHx8fDE2MDcyNjU2NjQ&ixlib=rb-1.2.1&q=80&w=400",
+    "endereco": "Rua E, 150",
+    "telefone": "(31) 94567-8901",
+    "capacidade": 70,
+    "categoria": "Pizzaria"
+  },
+  {
+    "id": 6,
+    "nome": "Green Garden",
+    "imagemurl": "https://images.unsplash.com/photo-1529042410759-befb1204b468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDZ8fHZlZ2V0YXJpfGVufDB8fHx8MTY4ODQ0ODY1Ng&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Rua F, 75",
+    "telefone": "(31) 93456-7890",
+    "capacidade": 45,
+    "categoria": "Vegetariano"
+  },
+  {
+    "id": 7,
+    "nome": "Taco Loco",
+    "imagemurl": "https://images.unsplash.com/photo-1552332386-f8dd00dc3e6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI1fHx0YWNvfGVufDB8fHx8MTY4ODQ0OTEyNg&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Av. G, 420",
+    "telefone": "(31) 92345-6789",
+    "capacidade": 55,
+    "categoria": "Mexicana"
+  },
+  {
+    "id": 8,
+    "nome": "Spice India",
+    "imagemurl": "https://images.unsplash.com/photo-1605475127607-0d73ef8dbb23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI4fHxpbmRpYW58ZW58MHx8fHwxNjg4NDQ5Mjk4&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Rua H, 230",
+    "telefone": "(31) 91234-5512",
+    "capacidade": 65,
+    "categoria": "Indiana"
+  },
+  {
+    "id": 9,
+    "nome": "Le Bistrot Français",
+    "imagemurl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxmcmVuY2h8ZW58MHx8fHwxNjg4NDQ5MzU1&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Av. I, 550",
+    "telefone": "(31) 99887-6655",
+    "capacidade": 35,
+    "categoria": "Francês"
+  },
+  {
+    "id": 10,
+    "nome": "Ocean Sushi Bar",
+    "imagemurl": "https://images.unsplash.com/photo-1553621042-f6e147245754?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE1fHxzdXNoaXxlbnwwfHx8fDE2ODg0NDkzNzU&ixlib=rb-4.0.3&q=80&w=400",
+    "endereco": "Rua J, 12",
+    "telefone": "(31) 93411-2233",
+    "capacidade": 28,
+    "categoria": "Japonês"
+  }
+]

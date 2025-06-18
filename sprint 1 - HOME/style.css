@@ -1,0 +1,218 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #fffcd1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    background-color: #800000;
+    padding: .5rem 1rem;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .barra-busca {
+    background: #fff;
+    border-radius: 20px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    width: 280px;
+  }
+  
+  .barra-busca input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+  }
+  
+  .barra-busca .bi-search {
+    color: #999;
+    font-size: 1.1rem;
+  }
+  
+  .btn-hamburger {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .titulo-secao {
+    font-family: serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    color: #333;
+    font-size: 1.75rem;
+  }
+  
+  
+#carrosselTopo {
+    height: 260px;
+    margin: 0 auto 3rem;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  #carrosselTopo .carousel-item img { object-fit: cover; height: 100%; }
+  #carrosselTopo .carousel-indicators { bottom: 8px; }
+  #carrosselTopo .carousel-indicators button {
+    width: 12px; height: 12px; border-radius: 50%;
+    background-color: rgba(255,255,255,0.8); border: none;
+  }
+  #carrosselTopo .carousel-indicators .active { background-color: #fff !important; }
+  
+ 
+  .grid-restaurantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;   
+    justify-items: center;    
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+
+  .cartao-restaurante {
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform .3s, box-shadow .3s;
+    display: flex;
+    flex-direction: column;
+    width: 220px;        
+  }
+  
+  .cartao-restaurante:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .cartao-restaurante img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  
+  .cartao-corpo {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cartao-corpo h6 {
+    font-size: 1.125rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+  
+  .botao-detalhes {
+    align-self: center;
+    padding: .4rem 1rem;
+    font-size: .9rem;
+    border-radius: 20px;
+    background-color: #800000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color .2s;
+  }
+  
+  .botao-detalhes:hover {
+    background-color: #a00000;
+  }
+  
+ 
+  .offcanvas {
+    background-color: #800000;
+    color: #fff;
+  }
+  
+  .offcanvas-header {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  
+  .offcanvas-title {
+    font-size: 1.25rem;
+  }
+  
+  .offcanvas-body a {
+    display: block;
+    padding: .75rem 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .offcanvas-body a:hover {
+    text-decoration: underline;
+  }
+  
+
+  @media (max-width: 576px) {
+    .titulo-secao {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+    }
+  
+    .barra-busca {
+      max-width: 180px;
+    }
+  
+    #carrosselTopo {
+      height: 200px;
+      margin: 0 .5rem 1.5rem;
+    }
+    #carrosselTopo .carousel-indicators {
+      bottom: 4px;
+    }
+    #carrosselTopo .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+    }
+  
+    .grid-restaurantes {
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+  
+    .cartao-restaurante {
+      width: 180px;
+    }
+  
+    .cartao-corpo h6 {
+      font-size: .95rem;
+    }
+  }
+  
+
+  @media (min-width: 1200px) {
+    #carrosselTopo {
+      max-width: 900px;
+    }
+    #carrosselTopo .carousel-item img {
+      height: 350px;
+    }
+  }
+  

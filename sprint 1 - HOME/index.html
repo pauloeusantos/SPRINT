@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservou - Restaurantes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    
+    .btn-favorito {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .btn-favorito:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .btn-favorito.favorito {
+      color: #e74c3c;
+    }
+
+    .btn-favorito:not(.favorito) {
+      color: #666;
+    }
+
+    .cartao-restaurante {
+      position: relative;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .cartao-restaurante img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .cartao-corpo {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar d-flex justify-content-between align-items-center">
+    <a href="#" class="navbar-brand"> <img src="/assents/img/logo.png" class="me-2" alt="Reservou" height="40">RESERVOU</a>
+    <div class="d-flex align-items-center gap-3">
+      <div class="barra-busca">
+        <input type="text" id="campoFiltro" placeholder="Buscar..." />
+        <i class="bi bi-search"></i>
+      </div>
+      <button class="btn-hamburger" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menuLateral">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <a href="favoritos.html">Favoritos</a>
+      <a href="reservas.html">Reservas</a>
+    </div>
+  </div>
+
+  <div class="container-fluid flex-grow-1">
+    <h3 class="titulo-secao">RESTAURANTES</h3>
+    <div id="carrosselTopo" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="conteudoCarrossel"></div>
+      <div class="carousel-indicators" id="indicadoresCarrossel"></div>
+    </div>
+    <div class="grid-restaurantes row mt-4" id="gridRestaurantes"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const conteudoCarrossel    = document.getElementById('conteudoCarrossel');
+      const indicadoresCarrossel = document.getElementById('indicadoresCarrossel');
+      const gridRestaurantes     = document.getElementById('gridRestaurantes');
+      const campoFiltro          = document.getElementById('campoFiltro');
+      let   listaRestaurantes    = [];
+
+      fetch('restaurantes.json')
+        .then(res => res.json())
+        .then(dados => {
+          listaRestaurantes = dados;
+          exibirCarrossel(listaRestaurantes.slice(0, 3));
+          exibirCartoes(listaRestaurantes);
+        })
+        .catch(err => console.error('Erro ao carregar restaurantes:', err));
+
+      function exibirCarrossel(itens) {
+        conteudoCarrossel.innerHTML = '';
+        indicadoresCarrossel.innerHTML = '';
+        itens.forEach((rest, i) => {
+          conteudoCarrossel.insertAdjacentHTML('beforeend', `
+            <div class="carousel-item ${i === 0 ? 'active' : ''}">
+              <img src="${rest.imagemurl}" class="d-block w-100" alt="${rest.nome}">
+            </div>
+          `);
+          indicadoresCarrossel.insertAdjacentHTML('beforeend', `
+            <button type="button" data-bs-target="#carrosselTopo" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}"></button>
+          `);
+        });
+        new bootstrap.Carousel('#carrosselTopo', { interval: 4000, ride: 'carousel' });
+      }
+
+      // Funções de favoritos
+      function obterFavoritos() {
+        return JSON.parse(sessionStorage.getItem('favoritos') || '[]');
+      }
+
+      function salvarFavoritos(favoritos) {
+        sessionStorage.setItem('favoritos', JSON.stringify(favoritos));
+      }
+
+      function alternarFavorito(idRestaurante) {
+        let favoritos = obterFavoritos();
+        const index = favoritos.indexOf(idRestaurante);
+
+        if (index > -1) {
+          favoritos.splice(index, 1);
+        } else {
+          favoritos.push(idRestaurante);
+        }
+
+        salvarFavoritos(favoritos);
+        exibirCartoes(listaRestaurantes); 
+      }
+
+      function ehFavorito(idRestaurante) {
+        return obterFavoritos().includes(idRestaurante);
+      }
+
+      window.alternarFavorito = alternarFavorito;
+
+      function exibirCartoes(dados) {
+        const termo = campoFiltro.value.trim().toLowerCase();
+        const filtrados = dados.filter(r => r.nome.toLowerCase().includes(termo));
+        gridRestaurantes.innerHTML = '';
+        filtrados.forEach(rest => {
+          const isFav = ehFavorito(rest.id);
+          gridRestaurantes.insertAdjacentHTML('beforeend', `
+            <div class="col-md-4">
+              <div class="cartao-restaurante">
+                <img src="${rest.imagemurl}" alt="${rest.nome}">
+                <button class="btn-favorito ${isFav ? 'favorito' : ''}" onclick="alternarFavorito(${rest.id})">
+                  <i class="bi ${isFav ? 'bi-heart-fill' : 'bi-heart'}"></i>
+                </button>
+                <div class="cartao-corpo">
+                  <h6>${rest.nome}</h6>
+                  <button class="botao-detalhes">Ver Mais</button>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+      }
+
+      campoFiltro.addEventListener('input', () => exibirCartoes(listaRestaurantes));
+    });
+  </script>
+</body>
+</html>

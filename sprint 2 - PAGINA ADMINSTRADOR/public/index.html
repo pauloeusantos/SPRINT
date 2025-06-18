@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrador - Reservou</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/public/assents/css/style.css" rel="stylesheet"> </head>
+<body class="bg-light">
+    <nav class="navbar topbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-bold" href="#">
+                <i class="fas fa-utensils me-2"></i>Reservou
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mobileNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-1"></i>Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 sidebar p-0">
+                <div class="p-4">
+                    <div class="logo">
+                      <img src="/public/assents/img/logo.png" alt="Logo Reservou" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                      <h3>Reservou</h3>
+                    </div>
+
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#" tabindex="0">
+                            <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                        </a>
+                    </nav>
+
+                    <div class="mt-auto pt-4">
+                        <a class="nav-link" href="#" onclick="logout()" tabindex="0">
+                            <i class="fas fa-sign-out-alt me-2"></i>Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">Informações do Restaurante</h2>
+   
+                </div>
+
+                <div class="alert alert-info mb-4">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Modo Demonstração:</strong> Editando dados do restaurante "<span id="restaurantName">Carregando...</span>" (ID: <span id="restaurantId">1</span>)
+                </div>
+
+                <div class="form-container">
+                    <form id="restaurantForm">
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <div class="text-center">
+                                    <div class="profile-image-container">
+                                        <img id="profileImage" class="profile-image" src="https://via.placeholder.com/120/8B0000/ffffff?text=LOGO" alt="Logo do Restaurante">
+                                        <div class="upload-overlay" onclick="document.getElementById('fileInput').click()">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(this)">
+                                    <p class="text-muted small">Clique no ícone para alterar a logo</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="nome" placeholder="Nome do Restaurante" required>
+                                            <label for="nome">Nome do Restaurante</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <select class="form-control" id="categoria" required>
+                                                <option value="">Selecione...</option>
+                                                <option value="Italiano">Italiano</option>
+                                                <option value="Brasileiro">Brasileiro</option>
+                                                <option value="Japonês">Japonês</option>
+                                                <option value="Mexicano">Mexicano</option>
+                                                <option value="Chinês">Chinês</option>
+                                                <option value="Fast Food">Fast Food</option>
+                                                <option value="Vegetariano">Vegetariano</option>
+                                                <option value="Churrascaria">Churrascaria</option>
+                                            </select>
+                                            <label for="categoria">Categoria</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control" id="capacidade" placeholder="Capacidade" min="1" max="1000" required>
+                                            <label for="capacidade">Capacidade (pessoas)</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="telefone" placeholder="Telefone" required>
+                                            <label for="telefone">Telefone</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-floating position-relative">
+                                            <input type="password" class="form-control" id="senha" placeholder="Nova Senha">
+                                            <label for="senha">Nova Senha (deixe em branco para manter)</label>
+                                            <i class="fas fa-eye password-toggle" onclick="togglePassword('senha')" id="toggleSenha"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="endereco" placeholder="Endereço" style="height: 100px" required></textarea>
+                                            <label for="endereco">Endereço Completo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-3">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="cancelEdit()">
+                                        <i class="fas fa-times me-2"></i>Cancelar
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-2"></i>Salvar Alterações
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/assents/js/app.js"></script> 
+</body>
+</html>

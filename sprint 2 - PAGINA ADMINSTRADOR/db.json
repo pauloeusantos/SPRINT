@@ -1,0 +1,268 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "senha": "123456",
+      "fotoPerfil": "img/joao.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Maria Santos",
+      "email": "maria@email.com",
+      "senha": "abcdef",
+      "fotoPerfil": "img/maria.jpg"
+    }
+  ],
+  "restaurantes": [
+    {
+      "id": "1",
+      "nome": "Sabor Mineiro",
+      "email": "contato@sabormineiro.com",
+      "categoria": "Mexicano",
+      "capacidade": 40,
+      "telefone": "(31) 3456-7890",
+      "endereco": "Rua das Flores, 123 - Centro, Belo Horizonte - MG",
+      "fotoPerfil": "http://127.0.0.1:5500/public/img/sabor-mineiro-logo.jpg",
+      "senha": "admin123"
+    },
+    {
+      "id": "2",
+      "nome": "Pizzaria Bella Napoli",
+      "email": "admin@bellanapoli.com",
+      "senha": "pizza2024",
+      "fotoPerfil": "img/bella-napoli-logo.jpg",
+      "imageUrl": "img/bella-napoli.jpg",
+      "endereco": "Av. Italia, 456 - Savassi, Belo Horizonte - MG",
+      "telefone": "(31) 2345-6789",
+      "capacidade": 60,
+      "categoria": "Italiano"
+    },
+    {
+      "id": "3",
+      "nome": "Sushi Zen",
+      "email": "contato@sushizen.com",
+      "senha": "zen123",
+      "fotoPerfil": "img/sushi-zen-logo.jpg",
+      "imageUrl": "img/sushi-zen.jpg",
+      "endereco": "Rua do Japão, 789 - Funcionários, Belo Horizonte - MG",
+      "telefone": "(31) 1234-5678",
+      "capacidade": 30,
+      "categoria": "Japonês"
+    },
+    {
+      "id": "4",
+      "nome": "Churrascaria Gaúcha",
+      "email": "admin@churrascariasgaucha.com",
+      "senha": "churrasco456",
+      "fotoPerfil": "img/gaucha-logo.jpg",
+      "imageUrl": "img/churrascaria-gaucha.jpg",
+      "endereco": "Av. Rio Grande do Sul, 321 - Pampulha, Belo Horizonte - MG",
+      "telefone": "(31) 9876-5432",
+      "capacidade": 80,
+      "categoria": "Churrascaria"
+    },
+    {
+      "id": "5",
+      "nome": "Taco Loco",
+      "email": "hola@tacoloco.com",
+      "senha": "taco789",
+      "fotoPerfil": "img/taco-loco-logo.jpg",
+      "imageUrl": "img/taco-loco.jpg",
+      "endereco": "Rua México, 654 - Santa Efigênia, Belo Horizonte - MG",
+      "telefone": "(31) 5555-4444",
+      "capacidade": 25,
+      "categoria": "Mexicano"
+    }
+  ],
+  "reservas": [
+    {
+      "id": "1",
+      "usuarioId": 1,
+      "restauranteId": 1,
+      "mesaSelecionada": 10,
+      "data": "15/04/2025",
+      "horarioMarcado": "20:30",
+      "qtdPessoas": 5,
+      "estacionamento": true,
+      "status": "confirmada"
+    },
+    {
+      "id": "2",
+      "usuarioId": 2,
+      "restauranteId": 2,
+      "mesaSelecionada": 5,
+      "data": "16/04/2025",
+      "horarioMarcado": "19:00",
+      "qtdPessoas": 2,
+      "estacionamento": false,
+      "status": "pendente"
+    },
+    {
+      "id": "3",
+      "usuarioId": 1,
+      "restauranteId": 3,
+      "mesaSelecionada": 12,
+      "data": "17/04/2025",
+      "horarioMarcado": "21:00",
+      "qtdPessoas": 4,
+      "estacionamento": true,
+      "status": "confirmada"
+    }
+  ],
+  "mesas": [
+    {
+      "id": "1",
+      "restauranteId": 1,
+      "numero": 1,
+      "capacidade": 2,
+      "status": "disponivel"
+    },
+    {
+      "id": "2",
+      "restauranteId": 1,
+      "numero": 2,
+      "capacidade": 4,
+      "status": "ocupada"
+    },
+    {
+      "id": "3",
+      "restauranteId": 1,
+      "numero": 3,
+      "capacidade": 6,
+      "status": "disponivel"
+    },
+    {
+      "id": "4",
+      "restauranteId": 1,
+      "numero": 4,
+      "capacidade": 8,
+      "status": "reservada"
+    },
+    {
+      "id": "5",
+      "restauranteId": 2,
+      "numero": 1,
+      "capacidade": 2,
+      "status": "disponivel"
+    },
+    {
+      "id": "6",
+      "restauranteId": 2,
+      "numero": 2,
+      "capacidade": 4,
+      "status": "selecionada"
+    },
+    {
+      "id": "7",
+      "restauranteId": 3,
+      "numero": 1,
+      "capacidade": 2,
+      "status": "disponivel"
+    },
+    {
+      "id": "8",
+      "restauranteId": 3,
+      "numero": 2,
+      "capacidade": 4,
+      "status": "ocupada"
+    }
+  ],
+  "calendario": {
+    "mes": "Abril",
+    "ano": 2025,
+    "dias": [
+      {
+        "numero": 15,
+        "disponivel": true,
+        "diaSemana": "Ter",
+        "selecionado": true
+      },
+      {
+        "numero": 16,
+        "disponivel": true,
+        "diaSemana": "Qua",
+        "selecionado": false
+      },
+      {
+        "numero": 17,
+        "disponivel": false,
+        "diaSemana": "Qui",
+        "selecionado": false
+      },
+      {
+        "numero": 18,
+        "disponivel": true,
+        "diaSemana": "Sex",
+        "selecionado": false
+      }
+    ]
+  },
+  "favoritos": [
+    {
+      "id": "1",
+      "usuarioId": 1,
+      "restauranteId": 1
+    },
+    {
+      "id": "2",
+      "usuarioId": 1,
+      "restauranteId": 3
+    },
+    {
+      "id": "3",
+      "usuarioId": 2,
+      "restauranteId": 2
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Brasileiro"
+    },
+    {
+      "id": "2",
+      "nome": "Italiano"
+    },
+    {
+      "id": "3",
+      "nome": "Japonês"
+    },
+    {
+      "id": "4",
+      "nome": "Churrascaria"
+    },
+    {
+      "id": "5",
+      "nome": "Mexicano"
+    },
+    {
+      "id": "6",
+      "nome": "Chinês"
+    },
+    {
+      "id": "7",
+      "nome": "Fast Food"
+    },
+    {
+      "id": "8",
+      "nome": "Vegetariano"
+    }
+  ],
+  "configuracoes": {
+    "sistema": {
+      "nome": "Reservou",
+      "versao": "1.0.0",
+      "cores": {
+        "primaria": "#8B0000",
+        "secundaria": "#660000"
+      }
+    },
+    "horariosFuncionamento": {
+      "abertura": "11:00",
+      "fechamento": "23:00",
+      "intervaloReservas": 30
+    }
+  }
+}
